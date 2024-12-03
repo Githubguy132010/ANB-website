@@ -6,6 +6,7 @@ body {
     background-color: #2E3440; /* Nordic dark blue */
     color: #D8DEE9; /* Nordic light text */
     transition: background-color 0.3s, color 0.3s;
+    animation: fadeIn 1s ease-in-out;
 }
 
 body.dark-mode {
@@ -16,11 +17,18 @@ body.dark-mode {
 header {
     background-color: #81A1C1; /* Nordic blue */
     padding: 10px 0;
-    transition: background-color 0.3s;
+    transition: background-color 0.3s, opacity 0.3s;
+    position: fixed;
+    width: 100%;
+    top: 0;
 }
 
 body.dark-mode header {
     background-color: #4C566A; /* Nordic dark header */
+}
+
+body.scrolled header {
+    opacity: 0.9;
 }
 
 nav ul {
@@ -39,7 +47,7 @@ nav ul li a {
     color: #ECEFF4; /* Nordic lighter text */
     text-decoration: none;
     font-size: 18px;
-    transition: color 0.3s;
+    transition: color 0.3s, border-bottom 0.3s;
 }
 
 body.dark-mode nav ul li a {
@@ -48,6 +56,7 @@ body.dark-mode nav ul li a {
 
 nav ul li a:hover {
     text-decoration: underline;
+    border-bottom: 2px solid #ECEFF4;
 }
 
 h1 {
@@ -61,6 +70,10 @@ body.dark-mode h1 {
 
 h1, h2, p, a, button {
     text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+h1, h2, p {
+    animation: fadeIn 2s ease-in-out;
 }
 
 p {
@@ -77,7 +90,7 @@ a {
     color: #81A1C1; /* Nordic blue */
     text-decoration: none;
     font-size: 18px;
-    transition: color 0.3s;
+    transition: color 0.3s, text-shadow 0.3s;
 }
 
 body.dark-mode a {
@@ -86,6 +99,8 @@ body.dark-mode a {
 
 a:hover {
     text-decoration: underline;
+    color: #88C0D0; /* Lichtere tint blauw */
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
 }
 
 button {
@@ -96,11 +111,12 @@ button {
     font-size: 16px;
     cursor: pointer;
     border-radius: 5px;
-    transition: background-color 0.3s, color 0.3s;
+    transition: background-color 0.3s, color 0.3s, transform 0.3s;
 }
 
 button:hover {
     background-color: #5E81AC; /* Darker Nordic blue */
+    transform: scale(1.05);
 }
 
 body.dark-mode button {
@@ -110,4 +126,10 @@ body.dark-mode button {
 
 body.dark-mode button:hover {
     background-color: #434C5E; /* Darker Nordic dark header */
+}
+
+/* Voeg keyframes toe voor fade-in effect */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
 }
